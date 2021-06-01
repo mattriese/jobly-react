@@ -1,5 +1,12 @@
 import {Link} from "react-router-dom";
 
+/** Homepage component
+ * 
+ * Props:
+ * - currUser
+ * 
+ * Routes -> Homepage
+ */
 function Homepage({currUser}) {
 
 	return (

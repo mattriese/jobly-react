@@ -8,38 +8,43 @@ import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import ProfileForm from "./ProfileForm";
 
+/** Routes component
+ * 
+ * App -> Routes -> Homepage
+ *               -> CompanyList
+ *               -> CompanyDetail
+ *               -> JobList
+ *               -> LoginForm
+ *               -> SignupForm
+ *               -> ProfileForm
+ */
+function Routes() {
 
-function Routes(){
-
-
-
-	return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
-          <Homepage  />
-        </Route>
-        <Route exact path="/companies">
-          <CompanyList />
-        </Route>
-				<Route path="/companies/:handle">
-          <CompanyDetail />
-        </Route>
-				<Route exact path="/jobs">
-          <JobList />
-        </Route>
-				<Route exact path="/login">
-          <LoginForm />
-        </Route>
-				<Route exact path="/signup">
-          <SignupForm />
-        </Route>
-				<Route exact path="/profile">
-          <ProfileForm />
-        </Route>
-        <Redirect to="/" />
-      </Switch>
-    </BrowserRouter>
+  return (
+    <Switch>
+      <Route exact path="/">
+        <Homepage />
+      </Route>
+      <Route exact path="/companies">
+        <CompanyList />
+      </Route>
+      <Route path="/companies/:handle">
+        <CompanyDetail />
+      </Route>
+      <Route exact path="/jobs">
+        <JobList />
+      </Route>
+      <Route exact path="/login">
+        <LoginForm />
+      </Route>
+      <Route exact path="/signup">
+        <SignupForm />
+      </Route>
+      <Route exact path="/profile">
+        <ProfileForm />
+      </Route>
+      <Redirect to="/" />
+    </Switch>
   );
 }
 
