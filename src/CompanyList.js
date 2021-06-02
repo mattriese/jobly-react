@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { JoblyApi } from './api';
 import CompanyCard from './CompanyCard';
-//import SearchForm from './SearchForm';
+import SearchForm from './SearchForm';
 
 /** CompanyList component
  *
@@ -27,7 +27,7 @@ function CompanyList({currUser}) {
     <div>
       <SearchForm />
       {companies.map((c) => (
-        <CompanyCard company={c} currUser={currUser}/>
+        <CompanyCard key={c.handle} company={c} currUser={currUser}/>
       ))}
     </div>
   );

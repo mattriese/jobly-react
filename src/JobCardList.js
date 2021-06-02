@@ -1,7 +1,7 @@
 function JobCardList({currUser, jobs}) {
 	return (
-	<div/>
-
+	<div>JobCardList</div>
+	)
 }
 
 export default JobCardList;
