@@ -1,12 +1,39 @@
+import { useState, useEffect } from "react";
+import JobCardList from "./JobCardList";
+import SearchForm from "./SearchForm";
+import {JoblyApi} from "./api";
 
 /** JobList component
  * 
- * Routes -> JobList
+ * State:
+ * - jobs
+ * - searchTerm
+ * 
+ * Routes -> JobList -> SearchForm
+ *                   -> JobCardList
  */
 function JobList() {
+  const [jobs, setJobs] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  console.log("JOBS--->", jobs);
+
+  function handleSearch(searchTerm) {
+    console.log("handleSearch ran")
+    setSearchTerm(searchTerm);
+  }
+
+  useEffect(function getJobs() {
+    async function getAll() {
+      let jobsRes = await JoblyApi.getJobs(searchTerm);
+      console.log("jobsRes--->", jobsRes);
+      setJobs(jobsRes);
+    }
+    getAll();
+  }, [searchTerm]);
   return (
     <div>
-      List of jobs!
+      <SearchForm initialSearchTerm={searchTerm} handleSearch={handleSearch} />
+      <JobCardList jobs={jobs} />
     </div>
   )
 }

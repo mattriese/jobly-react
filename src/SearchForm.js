@@ -12,7 +12,6 @@ import Button from 'react-bootstrap/Button';
  * CompanyList / JobList -> SearchForm
  *
  *
- * TODO: make form input reset after a search
  *
  */
 function SearchForm({ initialSearchTerm, handleSearch }) {

@@ -37,8 +37,12 @@ class JoblyApi {
   /** Get details on a company by handle. */
 
   static async getCompany(handle) {
-    let res = await this.request(`companies/${handle}`);
-    return res.company;
+    try {
+      let res = await this.request(`companies/${handle}`);
+      return res.company;
+    } catch (err) {
+      return err;
+    }
   }
 
   /** Get list of all companies
@@ -46,14 +50,34 @@ class JoblyApi {
    * accepts a string: searchTerm
    * returns: an array of company objects
   */
-  static async getAllCompanies(searchTerm) {
+  static async getCompanies(searchTerm) {
+    try {
+      let res;
+      if (searchTerm === "") {
+        res = await this.request(`companies`);
+      } else {
+        res = await this.request(`companies`, { name: searchTerm });
+      }
+      return res.companies;
+    } catch (err) {
+      return err;
+    }
+  }
+
+  /** Gets a list of all jobs
+   * 
+   * accepts a string: searchTerm
+   * returns: an array of job objects
+   */
+  static async getJobs(searchTerm) {
     let res;
     if (searchTerm === "") {
-      res = await this.request(`companies`);
+      res = await this.request(`jobs`);
     } else {
-      res = await this.request(`companies`, { name: searchTerm });
+      res = await this.request(`jobs`, { title: searchTerm });
     }
-    return res.companies;
+    console.log("JOBS FROM API--->", res.jobs);
+    return res.jobs;
   }
 
   // obviously, you'll add a lot here ...
