@@ -9,7 +9,7 @@ import SignupForm from "./SignupForm";
 import ProfileForm from "./ProfileForm";
 
 /** Routes component
- * 
+ *
  * App -> Routes -> Homepage
  *               -> CompanyList
  *               -> CompanyDetail
@@ -18,21 +18,21 @@ import ProfileForm from "./ProfileForm";
  *               -> SignupForm
  *               -> ProfileForm
  */
-function Routes() {
+function Routes({currUser}) {
 
   return (
     <Switch>
       <Route exact path="/">
-        <Homepage />
+        <Homepage currUser={currUser}/>
       </Route>
       <Route exact path="/companies">
-        <CompanyList />
+        <CompanyList currUser={currUser}/>
       </Route>
       <Route path="/companies/:handle">
-        <CompanyDetail />
+        <CompanyDetail currUser={currUser}/>
       </Route>
       <Route exact path="/jobs">
-        <JobList />
+        <JobList currUser={currUser}/>
       </Route>
       <Route exact path="/login">
         <LoginForm />
@@ -41,7 +41,7 @@ function Routes() {
         <SignupForm />
       </Route>
       <Route exact path="/profile">
-        <ProfileForm />
+        <ProfileForm currUser={currUser}/>
       </Route>
       <Redirect to="/" />
     </Switch>

@@ -5,10 +5,10 @@ import NavBar from "./NavBar"
 import Routes from "./Routes"
 
 /** App component
- * 
+ *
  * State:
  * - currUser
- * 
+ *
  * App -> NavBar
  *     -> Routes
  */
@@ -19,8 +19,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar />
-        <Routes />
+        <NavBar currUser={currUser}/>
+        <Routes currUser={currUser}/>
       </BrowserRouter>
     </div>
   );
