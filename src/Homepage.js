@@ -13,6 +13,7 @@ import CurrUserContext from "./currUserContext";
 //15 currUSer.name eventually
 function Homepage() {
   const currUser = useContext(CurrUserContext);
+	console.log("currUser in homepage= ", currUser)
   return (
     <div>
       <h1>Jobly</h1>

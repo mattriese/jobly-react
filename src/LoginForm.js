@@ -17,15 +17,15 @@ function LoginForm({handleLogin}) {
       ...loginData,
       [name]: value,
     }));
-    // console.log("loginData handleChange-->", loginData);
+     console.log("loginData handleChange-->", loginData);
   }
 
   function handleSubmit(evt) {
-    // console.log('handleSubmit ran');
-    // console.log('loginData in handlesubmit= ', loginData);
+     console.log('handleSubmit ran');
+     console.log('loginData in handlesubmit= ', loginData);
     evt.preventDefault();
     handleLogin(loginData);
-    history.push("/");
+    history.push("/companies");
   }
 
   return (

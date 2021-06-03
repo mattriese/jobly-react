@@ -19,6 +19,7 @@ import CurrUserContext from "./currUserContext";
 function App() {
   const [currUser, setCurrUser] = useState(null);
   const [token, setToken] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   async function handleLogin(loginData) {
     try {
@@ -31,7 +32,7 @@ function App() {
   }
 
   useEffect(function getCurrUser() {
-    async function getUserFromApi(username) {
+    async function getUserFromApi() {
       // console.log("username in useeffect/getuserfromapi= ", username)
       if (token) {
         let {username} = jwt_decode(token);
@@ -39,15 +40,23 @@ function App() {
         const user = await JoblyApi.getUser(username);
         setCurrUser(user);
       }
+      setIsLoading(false);
     }
     getUserFromApi();
-    // if token ->
-  // jwt.decode(token) = {username}
-  // asynch : et user objoect from backend (write fcn on joblapiy)
-  // set Jobliapi.token with current toekn state
-  // setcurrUser
   },[token] );
+
+  // if token ->
+// jwt.decode(token) = {username}
+// asynch : et user objoect from backend (write fcn on joblapiy)
+// set Jobliapi.token with current toekn state
+// setcurrUser
+
   console.log("currUser in APP after render--->", currUser);
+  console.log("token after render:", JoblyApi.token)
+
+  if (isLoading) {
+    return <div>loading...</div>
+  }
 
   return (
     <div className="App">
