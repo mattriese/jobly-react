@@ -1,13 +1,13 @@
-import Card from "react-bootstrap/Card"
+import Card from 'react-bootstrap/Card';
 
 /** JobCard component
- * 
+ *
  * Props:
  * - job = {id, title, salary, equity, companyName}
  * - currUser
  * - isAtCompanyPage
  */
-function JobCard({job, currUser, isAtCompanyPage}) {
+function JobCard({ job, currUser, isAtCompanyPage }) {
   return (
     <Card>
       <Card.Body>
@@ -17,7 +17,7 @@ function JobCard({job, currUser, isAtCompanyPage}) {
         <Card.Text>Equity: {job.equity}</Card.Text>
       </Card.Body>
     </Card>
-  )
+  );
 }
 
 export default JobCard;

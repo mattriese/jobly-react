@@ -20,8 +20,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <NavBar currUser={currUser}/>
-        <Routes currUser={currUser}/>
+        <NavBar currUser={currUser} />
+        <Routes currUser={currUser} />
       </BrowserRouter>
     </div>
   );

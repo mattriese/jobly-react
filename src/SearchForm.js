@@ -10,21 +10,18 @@ import Button from 'react-bootstrap/Button';
  * State: searchTerm
  *
  * CompanyList / JobList -> SearchForm
- *
- *
- *
  */
 function SearchForm({ initialSearchTerm, handleSearch }) {
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
-	console.log("formData= ", searchTerm);
+  console.log('formData= ', searchTerm);
 
   function handleChange(evt) {
     setSearchTerm(evt.target.value);
   }
 
   function handleSubmit(evt) {
-		console.log("handleSubmit ran");
-		console.log("searchTerm in handlesubmit= ", searchTerm);
+    console.log('handleSubmit ran');
+    console.log('searchTerm in handlesubmit= ', searchTerm);
     evt.preventDefault();
     handleSearch(searchTerm);
   }
@@ -32,10 +29,10 @@ function SearchForm({ initialSearchTerm, handleSearch }) {
   return (
     <Form inline onSubmit={handleSubmit}>
       <Form.Group>
-        <Form.Label htmlFor="searchBox">Search</Form.Label>
+        <Form.Label htmlFor="searchBox"></Form.Label>
         <Form.Control
           className="mb-2 mr-sm-2"
-					value={searchTerm}
+          value={searchTerm}
           id="searchBox"
           type="text"
           placeholder="Search"
