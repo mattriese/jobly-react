@@ -17,11 +17,15 @@ function App() {
 
   const [currUser, setCurrUser] = useState(null)
 
+  function handleLogin() {
+    return <h1>handled</h1>
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
         <NavBar currUser={currUser} />
-        <Routes currUser={currUser} />
+        <Routes currUser={currUser} handleLogin={handleLogin}/>
       </BrowserRouter>
     </div>
   );

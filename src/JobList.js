@@ -16,6 +16,7 @@ function JobList() {
   const [jobs, setJobs] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   console.log("JOBS--->", jobs);
 
   function handleSearch(searchTerm) {
@@ -25,19 +26,29 @@ function JobList() {
 
   useEffect(function getJobs() {
     async function getAll() {
-      let jobsRes = await JoblyApi.getJobs(searchTerm);
-      console.log("jobsRes--->", jobsRes);
-      if (jobsRes instanceof Error) {
-				setIsError(true);
-			} else {
-      setJobs(jobsRes);
+      try {
+        let jobsRes = await JoblyApi.getJobs(searchTerm);
+        setJobs(jobsRes);
+        setIsLoading(false);
+      } catch (err) {
+        console.error("ERROR is= ", err)
+        setIsError(true);
+        setIsLoading(false);
       }
     };
     getAll();
   }, [searchTerm]);
+
+  if (isError) {
+    return <h1>500 Error</h1>
+  }
+
+  if (isLoading) {
+    return <h1>Loading...</h1>
+  }
+
   return (
     <div>
-      {isError && <h1>500 Error</h1>}
       <SearchForm initialSearchTerm={searchTerm} handleSearch={handleSearch} />
       <JobCardList jobs={jobs} />
     </div>

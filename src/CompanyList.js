@@ -10,19 +10,14 @@ import SearchForm from './SearchForm';
  * - searchTerm
  * - isError
  *
- * Routes -> CompanyList
+ * Routes -> CompanyList -> SearchForm
+ *                       -> CompanyCard
  */
 function CompanyList() {
   const [companies, setCompanies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isError, setIsError] = useState(false);
-
-  //TODO: get form data from search form, make api call to search for company,
-  // render new list of matching companies
-
-
-  // TODO: show loading message
-
+  const [isLoading, setIsLoading] = useState(true);
 
   function handleSearch(searchTerm) {
     console.log('handleSearch ran');
@@ -35,20 +30,29 @@ function CompanyList() {
         try {
           let companiesRes = await JoblyApi.getCompanies(searchTerm);
           setCompanies(companiesRes);
+          setIsLoading(false);
           console.log('COMPANIESRES--->', companiesRes);
         } catch (err) {
           console.error("ERROR is= ", err)
           setIsError(true);
+          setIsLoading(false);
         }
       }
       getAll();
     },
     [searchTerm]
   );
-//TODO if statement so don't show search form etc
+
+  if (isError) {
+    return <h1>500 Error</h1>
+  }
+
+  if (isLoading) {
+    return <h1>Loading...</h1>
+  }
+
   return (
     <div>
-      {isError && <h1>500 Error</h1>}
       <SearchForm initialSearchTerm={searchTerm} handleSearch={handleSearch} />
       {companies.map((c) => (
         <CompanyCard key={c.handle} company={c} />

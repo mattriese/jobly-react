@@ -25,24 +25,31 @@ function CompanyDetail({ currUser }) {
   console.log('COMPANYJOBS--->', company.jobs);
 
 
-	//TODO: similar error handling fix
   useEffect(function getCompany() {
     async function getCompanyData() {
-      let companyRes = await JoblyApi.getCompany(handle);
-      console.log('COMPANIESRES--->', companyRes);
-      if (companyRes instanceof Error) {
-        setIsError(true);
-      } else {
-        setCompany(companyRes);
-        setIsLoading(false);
-      }
+			try {
+				let companyRes = await JoblyApi.getCompany(handle);
+				console.log('COMPANIESRES--->', companyRes);
+					setCompany(companyRes);
+					setIsLoading(false);
+			} catch (err) {
+				setIsError(true);
+				setIsLoading(false);
+			}
     }
     getCompanyData();
   }, [handle]);
-//if is loading, return loading msg
+
+	if (isError) {
+		return <h1>500 Error</h1>
+	}
+
+	if (isLoading) {
+		return <h1>Loading...</h1>
+	}
+	
   return (
     <div>
-      {isError && <h1>500 Error</h1>}
       <div>
         <h2>{company.name}</h2>
         <p>{company.description}</p>

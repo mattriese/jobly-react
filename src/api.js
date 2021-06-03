@@ -20,8 +20,8 @@ class JoblyApi {
     const url = `${BASE_URL}/${endpoint}`;
     const headers = { Authorization: `Bearer ${JoblyApi.token}` };
     const params = (method === "get")
-        ? data
-        : {};
+      ? data
+      : {};
 
     try {
       return (await axios({ url, method, data, params, headers })).data;
@@ -37,31 +37,23 @@ class JoblyApi {
   /** Get details on a company by handle. */
 
   static async getCompany(handle) {
-    try {
-      let res = await this.request(`companies/${handle}`);
-      return res.company;
-    } catch (err) {
-      return err;
-    }
+    let res = await this.request(`companies/${handle}`);
+    return res.company;
   }
 
   /** Get list of all companies
    *
    * accepts a string: searchTerm
-   * returns: an array of company objects
+   * returns: an array of company objects 
   */
   static async getCompanies(searchTerm) {
-    //try {
-      let res;
-      if (searchTerm === "") {
-        res = await this.request(`companies`);
-      } else {
-        res = await this.request(`companies`, { name: searchTerm });
-      }
-      return res.companies;
-    //} catch (err) {
-    //  return err;
-    //}
+    let res;
+    if (searchTerm === "") {
+      res = await this.request(`companies`);
+    } else {
+      res = await this.request(`companies`, { name: searchTerm });
+    }
+    return res.companies;
   }
 
   /** Gets a list of all jobs
@@ -70,18 +62,13 @@ class JoblyApi {
    * returns: an array of job objects
    */
   static async getJobs(searchTerm) {
-    try {
-      let res;
-      if (searchTerm === "") {
-        res = await this.request(`jobs`);
-      } else {
-        res = await this.request(`jobs`, { title: searchTerm });
-      }
-      console.log("JOBS FROM API--->", res.jobs);
-      return res.jobs;
-    } catch (err) {
-      return err;
+    let res;
+    if (searchTerm === "") {
+      res = await this.request(`jobs`);
+    } else {
+      res = await this.request(`jobs`, { title: searchTerm });
     }
+    return res.jobs;
   }
 
   // obviously, you'll add a lot here ...
@@ -89,7 +76,7 @@ class JoblyApi {
 
 // for now, put token ("testuser" / "password" on class)
 JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-    "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-    "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+  "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
+  "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
 
-export {JoblyApi};
+export { JoblyApi };

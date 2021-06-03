@@ -18,7 +18,7 @@ import ProfileForm from "./ProfileForm";
  *               -> SignupForm
  *               -> ProfileForm
  */
-function Routes({currUser}) {
+function Routes({currUser, handleLogin}) {
 
   return (
     <Switch>
@@ -35,7 +35,7 @@ function Routes({currUser}) {
         <JobList currUser={currUser}/>
       </Route>
       <Route exact path="/login">
-        <LoginForm />
+        <LoginForm handleLogin={handleLogin}/>
       </Route>
       <Route exact path="/signup">
         <SignupForm />
