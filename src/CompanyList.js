@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { JoblyApi } from './api';
 import CompanyCard from './CompanyCard';
 import SearchForm from './SearchForm';
+import CurrUserContext from "./currUserContext";
 
 /** CompanyList component
  *
@@ -18,6 +19,8 @@ function CompanyList() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const currUser = useContext(CurrUserContext);
+  console.log("CURRUSER IN COMPANYLIST= ", currUser);
 
   function handleSearch(searchTerm) {
     console.log('handleSearch ran');

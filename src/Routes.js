@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { Switch, Route, Redirect, BrowserRouter } from "react-router-dom";
 import Homepage from "./Homepage";
 import CompanyList from "./CompanyList";
@@ -7,6 +7,7 @@ import JobList from "./JobList";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import ProfileForm from "./ProfileForm";
+import CurrUserContext from "./currUserContext";
 
 /** Routes component
  *
@@ -18,21 +19,19 @@ import ProfileForm from "./ProfileForm";
  *               -> SignupForm
  *               -> ProfileForm
  */
-function Routes({currUser, handleLogin}) {
+function Routes({handleLogin}) {
+  const currUser = useContext(CurrUserContext);
+  // console.log("currUserUsername in Routes--->", currUserUsername);
+  // if (!currUser) {
+  //   return (
+  //     <Redirect to="/"/>
+  //   )
+  // }
 
   return (
     <Switch>
       <Route exact path="/">
-        <Homepage currUser={currUser}/>
-      </Route>
-      <Route exact path="/companies">
-        <CompanyList currUser={currUser}/>
-      </Route>
-      <Route path="/companies/:handle">
-        <CompanyDetail currUser={currUser}/>
-      </Route>
-      <Route exact path="/jobs">
-        <JobList currUser={currUser}/>
+        <Homepage />
       </Route>
       <Route exact path="/login">
         <LoginForm handleLogin={handleLogin}/>
@@ -40,9 +39,20 @@ function Routes({currUser, handleLogin}) {
       <Route exact path="/signup">
         <SignupForm />
       </Route>
-      <Route exact path="/profile">
-        <ProfileForm currUser={currUser}/>
-      </Route>
+      {currUser && <div>
+        <Route exact path="/companies">
+          <CompanyList />
+        </Route>
+        <Route path="/companies/:handle">
+          <CompanyDetail />
+        </Route>
+        <Route exact path="/jobs">
+          <JobList />
+        </Route>
+        <Route exact path="/profile">
+          <ProfileForm />
+        </Route>
+      </div>}
       <Redirect to="/" />
     </Switch>
   );

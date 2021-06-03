@@ -7,7 +7,7 @@ import Card from 'react-bootstrap/Card';
  * - currUser
  * - isAtCompanyPage
  */
-function JobCard({ job, currUser, isAtCompanyPage }) {
+function JobCard({ job, isAtCompanyPage }) {
   return (
     <Card>
       <Card.Body>
