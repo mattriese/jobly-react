@@ -32,6 +32,17 @@ function App() {
     }
   }
 
+  async function handleSignup(signupData) {
+    try {
+      let token = await JoblyApi.signup(signupData);
+      setToken(token);
+      setIsLoaded(false);
+    } catch (err) {
+      console.log('handlelogin err = ', err);
+      return err;
+    }
+  }
+
   useEffect(function getCurrUser() {
     async function getUserFromApi() {
       // console.log("username in useeffect/getuserfromapi= ", username)
@@ -64,7 +75,7 @@ function App() {
       <BrowserRouter>
         <CurrUserContext.Provider value={currUser}>
           <NavBar />
-          <Routes handleLogin={handleLogin} />
+          <Routes handleLogin={handleLogin} handleSignup={handleSignup}/>
         </CurrUserContext.Provider>
       </BrowserRouter>
     </div>

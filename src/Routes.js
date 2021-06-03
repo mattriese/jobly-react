@@ -19,7 +19,7 @@ import CurrUserContext from './currUserContext';
  *               -> SignupForm
  *               -> ProfileForm
  */
-function Routes({ handleLogin }) {
+function Routes({ handleLogin, handleSignup }) {
   const currUser = useContext(CurrUserContext);
   // console.log("currUserUsername in Routes--->", currUserUsername);
   // if (!currUser) {
@@ -39,7 +39,7 @@ function Routes({ handleLogin }) {
           <LoginForm handleLogin={handleLogin} />
         </Route>
         <Route exact path="/signup">
-          <SignupForm />
+          <SignupForm handleSignup={handleSignup}/>
         </Route>
         <Route exact path="/companies">
           <CompanyList />
