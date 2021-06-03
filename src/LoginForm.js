@@ -2,11 +2,13 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 /** LoginForm component
- * 
+ *
  * Routes -> LoginForm
  */
 function LoginForm({handleLogin}) {
+
   const [loginData, setLoginData] = useState({username: "", password: ""});
+
   function handleChange(evt) {
     const { name, value } = evt.target;
     setLoginData(loginData => ({
@@ -22,8 +24,9 @@ function LoginForm({handleLogin}) {
     evt.preventDefault();
     handleLogin(loginData);
   }
+
   return (
-    <Form inline onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Form.Group>
         <Form.Label htmlFor="login-username"></Form.Label>
         <Form.Control
@@ -50,7 +53,7 @@ function LoginForm({handleLogin}) {
           required
         />
       </Form.Group>
-      <Button>Login</Button>
+      <Button type="submit">Login</Button>
     </Form>
   )
 }

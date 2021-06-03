@@ -44,7 +44,7 @@ class JoblyApi {
   /** Get list of all companies
    *
    * accepts a string: searchTerm
-   * returns: an array of company objects 
+   * returns: an array of company objects
   */
   static async getCompanies(searchTerm) {
     let res;
@@ -71,12 +71,33 @@ class JoblyApi {
     return res.jobs;
   }
 
+  /** Login: Send authentication post request to api
+   *
+   * accepts an object loginData: {username, password}
+   * returns token string
+  */
+  static async login(loginData) {
+    let res = await this.request('auth/token', loginData, "POST")
+    return res.token;
+  }
+
+/**
+ * get user object
+ * accepts username
+ * returns user object
+ */
+    static async getUser(username) {
+      console.log("username in getUser= ", username)
+      let res = await this.request(`users/${username}`);
+      return res;
+    }
+
   // obviously, you'll add a lot here ...
 }
 
 // for now, put token ("testuser" / "password" on class)
-JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-  "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-  "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+// JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
+//   "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
+//   "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
 
 export { JoblyApi };
