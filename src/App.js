@@ -19,12 +19,13 @@ import CurrUserContext from "./currUserContext";
 function App() {
   const [currUser, setCurrUser] = useState(null);
   const [token, setToken] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   async function handleLogin(loginData) {
     try {
       let token = await JoblyApi.login(loginData);
       setToken(token);
+      setIsLoaded(false);
     } catch (err) {
       console.log('handlelogin err = ', err);
       return err;
@@ -40,7 +41,7 @@ function App() {
         const user = await JoblyApi.getUser(username);
         setCurrUser(user);
       }
-      setIsLoading(false);
+      setIsLoaded(true);
     }
     getUserFromApi();
   },[token] );
@@ -54,7 +55,7 @@ function App() {
   console.log("currUser in APP after render--->", currUser);
   console.log("token after render:", JoblyApi.token)
 
-  if (isLoading) {
+  if (!isLoaded) {
     return <div>loading...</div>
   }
 

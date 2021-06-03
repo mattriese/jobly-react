@@ -1,5 +1,7 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import NavItem from "react-bootstrap/NavItem"
+import {NavLink} from "react-router-dom";
 import { useContext } from 'react';
 import CurrUserContext from './currUserContext';
 
@@ -11,19 +13,20 @@ function NavBar() {
 	const currUser = useContext(CurrUserContext);
   return (
     <Navbar>
-      <Nav.Link href="/">Jobly</Nav.Link>
+			<NavItem>
+      <NavLink className="nav-link" to="/">Jobly</NavLink></NavItem>
       {!currUser && (
         <Nav>
-          <Nav.Link href="/login">Login</Nav.Link>
-          <Nav.Link href="/signup">Signup</Nav.Link>
+          <NavLink className="nav-link" to="/login">Login</NavLink>
+          <NavLink className="nav-link" to="/signup">Signup</NavLink>
         </Nav>
       )}
       {currUser && (
         <Nav>
-          <Nav.Link href="/companies">Companies</Nav.Link>
-          <Nav.Link href="/jobs">Jobs</Nav.Link>
-          <Nav.Link href="/profile">Profile</Nav.Link>
-          <Nav.Link href="/">Logout {currUser.user.username}</Nav.Link>
+          <NavLink className="nav-link" to="/companies">Companies</NavLink>
+          <NavLink className="nav-link" to="/jobs">Jobs</NavLink>
+          <NavLink className="nav-link" to="/profile">Profile</NavLink>
+          <NavLink className="nav-link" to="/">Logout {currUser.user.username}</NavLink>
         </Nav>
       )}
     </Navbar>

@@ -20,11 +20,11 @@ function LoginForm({handleLogin}) {
      console.log("loginData handleChange-->", loginData);
   }
 
-  function handleSubmit(evt) {
+  async function handleSubmit(evt) {
      console.log('handleSubmit ran');
      console.log('loginData in handlesubmit= ', loginData);
     evt.preventDefault();
-    handleLogin(loginData);
+    await handleLogin(loginData);
     history.push("/companies");
   }
 
