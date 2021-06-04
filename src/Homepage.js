@@ -1,19 +1,15 @@
 import Button from 'react-bootstrap/Button';
-import {useContext} from "react";
-import CurrUserContext from "./currUserContext";
+import { useContext } from 'react';
+import CurrUserContext from './currUserContext';
 
 /** Homepage component
- *
- * Props:
- * - currUser
  *
  * Routes -> Homepage
  */
 
-//15 currUSer.name eventually
 function Homepage() {
   const currUser = useContext(CurrUserContext);
-	console.log("currUser in homepage= ", currUser)
+  console.log('currUser in homepage= ', currUser);
   return (
     <div>
       <h1>Jobly</h1>

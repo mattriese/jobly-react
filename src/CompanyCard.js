@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 /** CompanyCard component
  *
- * Props:	company
+ * Props:	company (object)
  *
  * CompanyList -> CompanyCard
  *

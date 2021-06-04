@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Homepage from './Homepage';
 import CompanyList from './CompanyList';
 import CompanyDetail from './CompanyDetail';
@@ -11,6 +11,8 @@ import CurrUserContext from './currUserContext';
 
 /** Routes component
  *
+ * Props: handleLoginOrSignup (function)
+ *
  * App -> Routes -> Homepage
  *               -> CompanyList
  *               -> CompanyDetail
@@ -19,7 +21,7 @@ import CurrUserContext from './currUserContext';
  *               -> SignupForm
  *               -> ProfileForm
  */
-function Routes({ handleLogin, handleSignup }) {
+function Routes({ handleLoginOrSignup }) {
   const currUser = useContext(CurrUserContext);
 
   if (currUser) {
@@ -50,10 +52,10 @@ function Routes({ handleLogin, handleSignup }) {
           <Homepage />
         </Route>
         <Route exact path="/login">
-          <LoginForm handleLogin={handleLogin} />
+          <LoginForm handleLoginOrSignup={handleLoginOrSignup} />
         </Route>
         <Route exact path="/signup">
-          <SignupForm handleSignup={handleSignup}/>
+          <SignupForm handleLoginOrSignup={handleLoginOrSignup} />
         </Route>
         <Redirect to="/" />
       </Switch>

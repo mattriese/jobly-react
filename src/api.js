@@ -71,38 +71,54 @@ class JoblyApi {
     return res.jobs;
   }
 
-  /** Login: Send authentication post request to api
+  // /** Login: Send authentication post request to api
+  //  *
+  //  * accepts an object loginData: {username, password}
+  //  * returns token string
+  // */
+  // static async login(loginData) {
+  //   let res = await this.request('auth/token', loginData, "POST")
+  //   return res.token;
+  // }
+
+  // /** Signup: Send post request with new user info to api
+  //  *
+  //  * accepts object signupData: {username, password, firstName, lastName, email}
+  //  * returns token
+  //  */
+  // static async signup(signupData) {
+  //   let res = await this.request("auth/register", signupData, "POST");
+  //   return res.token;
+  // }
+
+  /** loginOrSignup: send data to backend to login or sign up
    *
-   * accepts an object loginData: {username, password}
+   * accepts data object
    * returns token string
-  */
-  static async login(loginData) {
-    let res = await this.request('auth/token', loginData, "POST")
-    return res.token;
-  }
-
-  /** Signup: Send post request with new user info to api
-   * 
-   * accepts object signupData: {username, password, firstName, lastName, email}
-   * returns token
    */
-  static async signup(signupData) {
-    let res = await this.request("auth/register", signupData, "POST");
+  static async loginOrSignup(data) {
+    let endpoint = data.firstName ? "register" : "token";
+    let res = await this.request(`auth/${endpoint}`, data, "POST");
     return res.token;
-  }
+  };
 
-/**
- * get user object
+/** getUser: get request for individual user info
+ *
  * accepts username
  * returns user object
  */
     static async getUser(username) {
-      // console.log("username in getUser= ", username)
       let res = await this.request(`users/${username}`);
       return res;
     }
 
-  // obviously, you'll add a lot here ...
+
+  /** updateUser: patch request to update user info
+   *
+   * accepts user data object
+   * returns
+   */
+
 }
 
 // for now, put token ("testuser" / "password" on class)

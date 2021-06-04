@@ -4,7 +4,6 @@ import Card from 'react-bootstrap/Card';
  *
  * Props:
  * - job = {id, title, salary, equity, companyName}
- * - currUser
  * - isAtCompanyPage
  */
 function JobCard({ job, isAtCompanyPage }) {

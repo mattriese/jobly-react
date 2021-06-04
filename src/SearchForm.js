@@ -5,15 +5,15 @@ import Button from 'react-bootstrap/Button';
 /**
  * SearchForm component
  *
- * Props: handleSearch (function.
- *				 Will be different depending on if CompanyList or JobList is rendering form)
+ * Props: handleSearch (function)
+ * 				initialSearchTerm (string)
+ *
  * State: searchTerm
  *
  * CompanyList / JobList -> SearchForm
  */
 function SearchForm({ initialSearchTerm, handleSearch }) {
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
-  console.log('formData= ', searchTerm);
 
   function handleChange(evt) {
     setSearchTerm(evt.target.value);
@@ -39,7 +39,7 @@ function SearchForm({ initialSearchTerm, handleSearch }) {
           onChange={handleChange}
         />
       </Form.Group>
-      <Button>search</Button>
+      <Button >search</Button>
     </Form>
   );
 }

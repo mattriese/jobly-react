@@ -4,28 +4,31 @@ import Button from 'react-bootstrap/Button';
 import { useHistory } from 'react-router';
 /** LoginForm component
  *
+ * Props: handleLoginOrSignup (function)
+ *
+ * State: loginData (object)
+ *
  * Routes -> LoginForm
  */
-function LoginForm({handleLogin}) {
-
-  const [loginData, setLoginData] = useState({username: "", password: ""});
+function LoginForm({ handleLoginOrSignup }) {
+  const [loginData, setLoginData] = useState({ username: '', password: '' });
   const history = useHistory();
 
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setLoginData(loginData => ({
+    setLoginData((loginData) => ({
       ...loginData,
       [name]: value,
     }));
-     console.log("loginData handleChange-->", loginData);
+    console.log('loginData handleChange-->', loginData);
   }
 
   async function handleSubmit(evt) {
-     console.log('handleSubmit ran');
-     console.log('loginData in handlesubmit= ', loginData);
+    console.log('handleSubmit ran');
+    console.log('loginData in handlesubmit= ', loginData);
     evt.preventDefault();
-    await handleLogin(loginData);
-    history.push("/companies");
+    await handleLoginOrSignup(loginData);
+    history.push('/companies');
   }
 
   return (
@@ -58,7 +61,7 @@ function LoginForm({handleLogin}) {
       </Form.Group>
       <Button type="submit">Login</Button>
     </Form>
-  )
+  );
 }
 
 export default LoginForm;

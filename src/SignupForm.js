@@ -4,23 +4,27 @@ import Button from 'react-bootstrap/Button';
 import { useHistory } from 'react-router';
 
 /** SignupForm component
- * 
+ *
+ * Props: handleLoginOrSignup (function)
+ *
+ * State: signupData (object)
+ *
  * Routes -> SignupForm
  */
-function SignupForm({ handleSignup }) {
+function SignupForm({ handleLoginOrSignup }) {
   const [signupData, setSignupData] = useState({
-    username: "",
-    password: "",
-    firstName: "",
-    lastName: "",
-    email: ""
+    username: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    email: '',
   });
 
   const history = useHistory();
 
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setSignupData(signupData => ({
+    setSignupData((signupData) => ({
       ...signupData,
       [name]: value,
     }));
@@ -30,8 +34,8 @@ function SignupForm({ handleSignup }) {
     console.log('handleSubmit ran');
     console.log('loginData in handlesubmit= ', signupData);
     evt.preventDefault();
-    await handleSignup(signupData);
-    history.push("/");
+    await handleLoginOrSignup(signupData);
+    history.push('/');
   }
   return (
     <Form onSubmit={handleSubmit}>
@@ -102,7 +106,7 @@ function SignupForm({ handleSignup }) {
       </Form.Group>
       <Button type="submit">Signup</Button>
     </Form>
-  )
+  );
 }
 
 export default SignupForm;
