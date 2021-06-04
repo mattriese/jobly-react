@@ -45,22 +45,21 @@ function Routes({ handleLoginOrSignup }) {
         <Redirect to="/" />
       </Switch>
     );
-  } else {
-    return (
-      <Switch>
-        <Route exact path="/">
-          <Homepage />
-        </Route>
-        <Route exact path="/login">
-          <LoginForm handleLoginOrSignup={handleLoginOrSignup} />
-        </Route>
-        <Route exact path="/signup">
-          <SignupForm handleLoginOrSignup={handleLoginOrSignup} />
-        </Route>
-        <Redirect to="/" />
-      </Switch>
-    );
   }
+  return (
+    <Switch>
+      <Route exact path="/">
+        <Homepage />
+      </Route>
+      <Route exact path="/login">
+        <LoginForm handleLoginOrSignup={handleLoginOrSignup} />
+      </Route>
+      <Route exact path="/signup">
+        <SignupForm handleLoginOrSignup={handleLoginOrSignup} />
+      </Route>
+      <Redirect to="/" />
+    </Switch>
+  );
 }
 
 export default Routes;

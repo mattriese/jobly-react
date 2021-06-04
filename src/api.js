@@ -97,7 +97,7 @@ class JoblyApi {
    * returns token string
    */
   static async loginOrSignup(data) {
-    let endpoint = data.firstName ? "register" : "token";
+    const endpoint = data.firstName ? "register" : "token";
     let res = await this.request(`auth/${endpoint}`, data, "POST");
     return res.token;
   };
