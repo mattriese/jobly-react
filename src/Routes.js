@@ -21,25 +21,12 @@ import CurrUserContext from './currUserContext';
  */
 function Routes({ handleLogin, handleSignup }) {
   const currUser = useContext(CurrUserContext);
-  // console.log("currUserUsername in Routes--->", currUserUsername);
-  // if (!currUser) {
-  //   return (
-  //     <Redirect to="/"/>
-  //   )
-  // }
-  console.log('currUSer in routes: ', currUser);
 
   if (currUser) {
     return (
       <Switch>
         <Route exact path="/">
           <Homepage />
-        </Route>
-        <Route exact path="/login">
-          <LoginForm handleLogin={handleLogin} />
-        </Route>
-        <Route exact path="/signup">
-          <SignupForm handleSignup={handleSignup}/>
         </Route>
         <Route exact path="/companies">
           <CompanyList />
@@ -66,7 +53,7 @@ function Routes({ handleLogin, handleSignup }) {
           <LoginForm handleLogin={handleLogin} />
         </Route>
         <Route exact path="/signup">
-          <SignupForm />
+          <SignupForm handleSignup={handleSignup}/>
         </Route>
         <Redirect to="/" />
       </Switch>

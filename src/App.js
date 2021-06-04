@@ -32,6 +32,11 @@ function App() {
     }
   }
 
+  async function handleLogout() {
+    setToken("");
+    setCurrUser(null);
+  }
+
   async function handleSignup(signupData) {
     try {
       let token = await JoblyApi.signup(signupData);
@@ -45,7 +50,6 @@ function App() {
 
   useEffect(function getCurrUser() {
     async function getUserFromApi() {
-      // console.log("username in useeffect/getuserfromapi= ", username)
       if (token) {
         let {username} = jwt_decode(token);
         JoblyApi.token = token;
@@ -57,15 +61,6 @@ function App() {
     getUserFromApi();
   },[token] );
 
-  // if token ->
-// jwt.decode(token) = {username}
-// asynch : et user objoect from backend (write fcn on joblapiy)
-// set Jobliapi.token with current toekn state
-// setcurrUser
-
-  console.log("currUser in APP after render--->", currUser);
-  console.log("token after render:", JoblyApi.token)
-
   if (!isLoaded) {
     return <div>loading...</div>
   }
@@ -74,7 +69,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <CurrUserContext.Provider value={currUser}>
-          <NavBar />
+          <NavBar handleLogout={handleLogout}/>
           <Routes handleLogin={handleLogin} handleSignup={handleSignup}/>
         </CurrUserContext.Provider>
       </BrowserRouter>

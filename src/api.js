@@ -81,6 +81,11 @@ class JoblyApi {
     return res.token;
   }
 
+  /** Signup: Send post request with new user info to api
+   * 
+   * accepts object signupData: {username, password, firstName, lastName, email}
+   * returns token
+   */
   static async signup(signupData) {
     let res = await this.request("auth/register", signupData, "POST");
     return res.token;
