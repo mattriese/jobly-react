@@ -12,7 +12,7 @@ function Homepage() {
   const currUser = useContext(CurrUserContext);
   console.log('currUser in homepage= ', currUser);
   return (
-    <container className="Homepage-container">
+    <div className="Homepage-container">
       <h1>Jobly</h1>
       <p>All the jobs in one, convenient place.</p>
       {currUser && <h2>Welcome Back, {currUser.user.firstName}</h2>}
@@ -22,7 +22,7 @@ function Homepage() {
           <Button className="Homepage-button" href="/signup">Sign up</Button>
         </div>
       )}
-    </container>
+    </div>
   );
 }
 

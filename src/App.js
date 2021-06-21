@@ -28,6 +28,7 @@ function App() {
       const token = await JoblyApi.login(loginData);
       setToken(token);
       localStorage.setItem('token', token);
+      console.log('localstorage token= ', localStorage.getItem('token'));
       setIsLoaded(false);
     } catch (err) {
       console.log('handlelogin err = ', err);
@@ -59,7 +60,6 @@ function App() {
           if (token) {
             const { username } = jwt_decode(token);
             JoblyApi.token = token;
-            console.log('localstorage token= ', localStorage.getItem('token'));
             const user = await JoblyApi.getUser(username);
             setCurrUser(user);
           }

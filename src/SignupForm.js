@@ -32,7 +32,7 @@ function SignupForm({ handleSignup }) {
 
   async function handleSubmit(evt) {
     console.log('handleSubmit ran');
-    console.log('loginData in handlesubmit= ', signupData);
+    console.log('signupData in handlesubmit= ', signupData);
     evt.preventDefault();
     await handleSignup(signupData);
     history.push('/');
