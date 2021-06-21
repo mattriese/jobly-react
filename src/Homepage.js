@@ -15,7 +15,7 @@ function Homepage() {
     <div className="Homepage-container">
       <h1>Jobly</h1>
       <p>All the jobs in one, convenient place.</p>
-      {currUser && <h2>Welcome Back, {currUser.user.firstName}</h2>}
+      {currUser && <h2>Welcome, {currUser.user.firstName}</h2>}
       {!currUser && (
         <div>
           <Button className="Homepage-button" href="/login">Log in</Button>
