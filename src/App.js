@@ -23,9 +23,9 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem('token') || '');
   const [isLoaded, setIsLoaded] = useState(false);
 
-  async function handleLoginOrSignup(data) {
+  async function handleLogin(loginData) {
     try {
-      const token = await JoblyApi.loginOrSignup(data);
+      const token = await JoblyApi.login(loginData);
       setToken(token);
       //set local storage here instead of 61
       setIsLoaded(false);
@@ -41,16 +41,16 @@ function App() {
     localStorage.removeItem('token');
   }
 
-  // async function handleSignup(signupData) {
-  //   try {
-  //     let token = await JoblyApi.signup(signupData);
-  //     setToken(token);
-  //     setIsLoaded(false);
-  //   } catch (err) {
-  //     console.log('handlelogin err = ', err);
-  //     return err;
-  //   }
-  // }
+  async function handleSignup(signupData) {
+    try {
+      let token = await JoblyApi.signup(signupData);
+      setToken(token);
+      setIsLoaded(false);
+    } catch (err) {
+      console.log('handlelogin err = ', err);
+      return err;
+    }
+  }
 
   useEffect(
     function getCurrUser() {
@@ -80,7 +80,7 @@ function App() {
       <BrowserRouter>
         <CurrUserContext.Provider value={currUser}>
           <NavBar handleLogout={handleLogout} />
-          <Routes handleLoginOrSignup={handleLoginOrSignup} />
+          <Routes handleLogin={handleLogin} handleSignup={handleSignup} />
         </CurrUserContext.Provider>
       </BrowserRouter>
     </div>

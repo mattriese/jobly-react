@@ -21,7 +21,7 @@ import CurrUserContext from './currUserContext';
  *               -> SignupForm
  *               -> ProfileForm
  */
-function Routes({ handleLoginOrSignup }) {
+function Routes({ handleLogin, handleSignup }) {
   const currUser = useContext(CurrUserContext);
 
   if (currUser) {
@@ -52,10 +52,10 @@ function Routes({ handleLoginOrSignup }) {
         <Homepage />
       </Route>
       <Route exact path="/login">
-        <LoginForm handleLoginOrSignup={handleLoginOrSignup} />
+        <LoginForm handleLogin={handleLogin} />
       </Route>
       <Route exact path="/signup">
-        <SignupForm handleLoginOrSignup={handleLoginOrSignup} />
+        <SignupForm handleSignup={handleSignup} />
       </Route>
       <Redirect to="/" />
     </Switch>

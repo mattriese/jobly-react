@@ -11,7 +11,7 @@ import { useHistory } from 'react-router';
  *
  * Routes -> SignupForm
  */
-function SignupForm({ handleLoginOrSignup }) {
+function SignupForm({ handleSignup }) {
   const [signupData, setSignupData] = useState({
     username: '',
     password: '',
@@ -34,7 +34,7 @@ function SignupForm({ handleLoginOrSignup }) {
     console.log('handleSubmit ran');
     console.log('loginData in handlesubmit= ', signupData);
     evt.preventDefault();
-    await handleLoginOrSignup(signupData);
+    await handleSignup(signupData);
     history.push('/');
   }
   return (

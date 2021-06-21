@@ -71,36 +71,25 @@ class JoblyApi {
     return res.jobs;
   }
 
-  // /** Login: Send authentication post request to api
-  //  *
-  //  * accepts an object loginData: {username, password}
-  //  * returns token string
-  // */
-  // static async login(loginData) {
-  //   let res = await this.request('auth/token', loginData, "POST")
-  //   return res.token;
-  // }
-
-  // /** Signup: Send post request with new user info to api
-  //  *
-  //  * accepts object signupData: {username, password, firstName, lastName, email}
-  //  * returns token
-  //  */
-  // static async signup(signupData) {
-  //   let res = await this.request("auth/register", signupData, "POST");
-  //   return res.token;
-  // }
-
-  /** loginOrSignup: send data to backend to login or sign up
+  /** Login: Send authentication post request to api
    *
-   * accepts data object
+   * accepts an object loginData: {username, password}
    * returns token string
-   */
-  static async loginOrSignup(data) {
-    const endpoint = data.firstName ? "register" : "token";
-    let res = await this.request(`auth/${endpoint}`, data, "POST");
+  */
+  static async login(loginData) {
+    let res = await this.request('auth/token', loginData, "POST")
     return res.token;
-  };
+  }
+
+  /** Signup: Send post request with new user info to api
+   *
+   * accepts object signupData: {username, password, firstName, lastName, email}
+   * returns token
+   */
+  static async signup(signupData) {
+    let res = await this.request("auth/register", signupData, "POST");
+    return res.token;
+  }
 
 /** getUser: get request for individual user info
  *
