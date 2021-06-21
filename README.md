@@ -4,7 +4,7 @@ This project was created by Matt Riese and Andre Pautin as a part of the curricu
 
 ##
 
-Users can visit pages with forms to login or signup. Once logged in, users can navigate with the navbar to /companies to see a list of all of the companies in the database, and click on them to visit their page and see their job listings. Or the user can click to visit /jobs to see a list of all of the job listings. Both /companies and /jobs have a search form to narrow down the results.
+Users can visit pages with forms to login or sign up. Once logged in, users can navigate with the navbar to /companies to see a list of all of the companies in the database, and click on them to visit their page and see their job listings. Or the user can click to visit /jobs to see a list of all of the job listings. Both /companies and /jobs have a search form to narrow down the results.
 
 ###
 
@@ -12,4 +12,4 @@ This project is designed to show proficiency with React, including useState, use
 
 ###
 
-This app was built over 3.5 days by Matt and Andre, and since then, Matt has made some minor code improvements and added most of the css you'll see. This is a work in progress. Still to be improved are: adding profile form for users to update their profile, adding a button on job listings to "apply" for the job, better error handling/alerts, css/design improvements.
+This app was built over 3.5 days by Matt and Andre, and since then, Matt has made some improvements including adding validation and error handling to the login and search forms, and added most of the css you'll see. This is a work in progress. Still to be improved are: adding profile form for users to update their profile, adding a button on job listings to "apply" for the job, and css/design improvements.

@@ -1,5 +1,5 @@
 import Card from 'react-bootstrap/Card';
-import "./JobCard.css";
+import './JobCard.css';
 
 /** JobCard component
  *
@@ -12,8 +12,8 @@ function JobCard({ job, isAtCompanyPage }) {
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
-    minimumFractionDigits: 0
-  })
+    minimumFractionDigits: 0,
+  });
   return (
     <Card className="JobCard-Card">
       <Card.Body>

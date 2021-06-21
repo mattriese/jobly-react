@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import CurrUserContext from './currUserContext';
-import "./NavBar.css";
+import './NavBar.css';
 
 /** NavBar component
  *

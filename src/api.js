@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
+const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:3001';
 
 /** API Class.
  *
@@ -14,19 +14,17 @@ class JoblyApi {
   // the token for interactive with the API will be stored here.
   static token;
 
-  static async request(endpoint, data = {}, method = "get") {
-    console.debug("API Call:", endpoint, data, method);
+  static async request(endpoint, data = {}, method = 'get') {
+    console.debug('API Call:', endpoint, data, method);
 
     const url = `${BASE_URL}/${endpoint}`;
     const headers = { Authorization: `Bearer ${JoblyApi.token}` };
-    const params = (method === "get")
-      ? data
-      : {};
+    const params = method === 'get' ? data : {};
 
     try {
       return (await axios({ url, method, data, params, headers })).data;
     } catch (err) {
-      console.error("API Error:", err.response);
+      console.error('API Error:', err.response);
       let message = err.response.data.error.message;
       throw Array.isArray(message) ? message : [message];
     }
@@ -45,10 +43,10 @@ class JoblyApi {
    *
    * accepts a string: searchTerm
    * returns: an array of company objects
-  */
+   */
   static async getCompanies(searchTerm) {
     let res;
-    if (searchTerm === "") {
+    if (searchTerm === '') {
       res = await this.request(`companies`);
     } else {
       res = await this.request(`companies`, { name: searchTerm });
@@ -63,7 +61,7 @@ class JoblyApi {
    */
   static async getJobs(searchTerm) {
     let res;
-    if (searchTerm === "") {
+    if (searchTerm === '') {
       res = await this.request(`jobs`);
     } else {
       res = await this.request(`jobs`, { title: searchTerm });
@@ -75,9 +73,9 @@ class JoblyApi {
    *
    * accepts an object loginData: {username, password}
    * returns token string
-  */
+   */
   static async login(loginData) {
-    let res = await this.request('auth/token', loginData, "POST")
+    let res = await this.request('auth/token', loginData, 'POST');
     return res.token;
   }
 
@@ -87,27 +85,25 @@ class JoblyApi {
    * returns token
    */
   static async signup(signupData) {
-    let res = await this.request("auth/register", signupData, "POST");
+    let res = await this.request('auth/register', signupData, 'POST');
     return res.token;
   }
 
-/** getUser: get request for individual user info
- *
- * accepts username
- * returns user object
- */
-    static async getUser(username) {
-      let res = await this.request(`users/${username}`);
-      return res;
-    }
+  /** getUser: get request for individual user info
+   *
+   * accepts username
+   * returns user object
+   */
+  static async getUser(username) {
+    let res = await this.request(`users/${username}`);
+    return res;
+  }
 
-
-/** updateUser: patch request to update user info
- *
- * accepts user data object
- * returns
- */
-
+  /** updateUser: patch request to update user info
+   *
+   * accepts user data object
+   * returns
+   */
 }
 
 // TESTUSER TOKEN: for now, put token ("testuser" / "password" on class)

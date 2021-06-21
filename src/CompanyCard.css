@@ -1,28 +1,28 @@
 .card img {
-    margin: auto;
-    position: relative;
-    width: 5em;
-    max-height: 6em;
-  }
+  margin: auto;
+  position: relative;
+  width: 5em;
+  max-height: 6em;
+}
 
-  .CompanyCard {
-      text-decoration: 'none';
-      margin-top: 2em;
-      margin-right: 6em;
-      margin-left: 6em;
-  }
+.CompanyCard {
+  text-decoration: 'none';
+  margin-top: 2em;
+  margin-right: 6em;
+  margin-left: 6em;
+}
 
-  .Card-title {
-    font-family: 'Rubik', sans-serif;
-    text-decoration: 'none';
-  }
+.Card-title {
+  font-family: 'Rubik', sans-serif;
+  text-decoration: 'none';
+}
 
-  .CompanyCard:hover {
-      outline-color: black;
-  }
+.CompanyCard:hover {
+  outline-color: black;
+}
 
-  .title {
-      text-decoration: none;
-      color: black;
-      font-size: 1.5em;
-  }
+.title {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5em;
+}
