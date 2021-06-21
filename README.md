@@ -1,6 +1,6 @@
 # JOBLY - demo React app
 
-This project was created by Matt Riese and Andre Pautin as a part of the curriculum for Rithm School web development bootcamp. It's a SPA for searching job listings posted by various companies. We built the entire React app together (pair programming) with the exception of the first 42 lines of api.js, where our instructors gave us some starter code for the JoblyApi class. The entire backend api was provided for us by by the instructors at Rithm School, and is hosted on heroku. The frontend React app can be seen at https://jobly-react-mr.surge.sh/ . The GitHub repo is github.com/mattriese/jobly-react .
+This project was created by Matt Riese and Andre Pautin as a part of the curriculum for Rithm School web development bootcamp. It's a SPA for searching job listings posted by various companies. We built the entire React app together (pair programming) with the exception of the first 42 lines of api.js, where our instructors gave us some starter code for the JoblyApi class. The entire backend api was provided for us by by the instructors at Rithm School, and is hosted on heroku. The frontend React app can be seen at https://jobly-react.surge.sh/. The GitHub repo is github.com/mattriese/jobly-react.
 
 ##
 
