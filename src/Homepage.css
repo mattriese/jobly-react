@@ -1,8 +1,13 @@
 .Homepage-container {
-    padding: 5em;
-    margin-top: 5em;
+  padding: 5em;
+  margin-top: 5em;
 }
 
 .Homepage-button {
-    margin: .5em;
+  margin: 0.5em;
+}
+
+h1 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 3.5em;
 }

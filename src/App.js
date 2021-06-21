@@ -32,7 +32,7 @@ function App() {
       setIsLoaded(false);
     } catch (err) {
       console.log('handlelogin err = ', err);
-      return err;
+      throw new Error(err);
     }
   }
 
@@ -49,7 +49,7 @@ function App() {
       setIsLoaded(false);
     } catch (err) {
       console.log('handleSignup err = ', err);
-      return err;
+      throw new Error(err);
     }
   }
 

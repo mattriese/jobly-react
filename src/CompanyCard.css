@@ -6,7 +6,13 @@
   }
 
   .CompanyCard {
+      text-decoration: 'none';
       margin-top: 2em;
       margin-right: 6em;
       margin-left: 6em;
+  }
+
+  .Card-title {
+    font-family: 'Rubik', sans-serif;
+    text-decoration: 'none';
   }

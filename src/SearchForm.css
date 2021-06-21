@@ -1,9 +1,18 @@
 .SearchForm {
-
+    width: 50%;
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    text-align: center;
     margin-right: 6em;
     margin-left: 6em;
 }
 
 .FormInput {
     margin-bottom: .5em;
+    text-align: center;
+}
+
+.SeachForm-Button {
+    margin-top: .5em;
 }

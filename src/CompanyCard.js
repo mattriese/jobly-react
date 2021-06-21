@@ -17,10 +17,10 @@ function CompanyCard({ company }) {
       <NavLink to={`/companies/${handle}`}>
         <Card className="CompanyCard-card">
           {logoUrl && (
-            <Card.Img variant="top" src={logoUrl} alt={`${logoUrl}`} />
+            <Card.Img variant="top" src={logoUrl} alt={logoUrl} />
           )}
           <Card.Body>
-            <Card.Title>{name}</Card.Title>
+            <Card.Title className="Card-title">{name}</Card.Title>
             <Card.Text>{description}</Card.Text>
           </Card.Body>
         </Card>

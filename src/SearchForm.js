@@ -40,7 +40,7 @@ function SearchForm({ initialSearchTerm, handleSearch }) {
             onChange={handleChange}
           />
         </Form.Group>
-        <Button>search</Button>
+        <Button className="SearchForm-Button">search</Button>
       </Form>
     </div>
   );

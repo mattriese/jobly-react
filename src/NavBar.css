@@ -1,4 +1,11 @@
-.Navbar {
-    background-color: #0c6d6e;
+.Nav {
+    position: absolute;
+    right: 5%;
+}
+.nav-link {
+    font-family: 'Rubik', sans-serif;
+}
 
+b {
+    font-size: 1.5em;;
 }

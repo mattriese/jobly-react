@@ -1,6 +1,7 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavItem from 'react-bootstrap/NavItem';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import CurrUserContext from './currUserContext';
@@ -21,7 +22,7 @@ function NavBar({ handleLogout }) {
   }
 
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar className="NavBar" sticky="top" bg="dark" variant="dark">
       <NavItem>
         <NavLink className="nav-link" to="/">
           <b>Jobly</b>
@@ -42,7 +43,7 @@ function NavBar({ handleLogout }) {
         </Nav>
       )}
       {currUser && (
-        <Nav>
+        <Nav className="Nav">
           <NavItem>
             <NavLink className="nav-link" to="/companies">
               Companies
@@ -58,8 +59,8 @@ function NavBar({ handleLogout }) {
               Profile
             </NavLink>
           </NavItem>
-          <NavItem>
-            <NavLink onClick={logout} className="nav-link" to="/">
+          <NavItem className="ml-auto">
+            <NavLink onClick={logout} className="nav-link ml-auto" to="/">
               Logout {currUser.user.username}
             </NavLink>
           </NavItem>

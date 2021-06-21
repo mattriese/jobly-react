@@ -1,15 +1,15 @@
-
+import Alert from 'react-bootstrap/Alert'
 /** Alert component
- * 
+ *
  * LoginForm -> Alert
  * SignupForm -> Alert
  * ProfileForm -> Alert
  */
-function Alert() {
+function Alert({ variant, err }) {
   return (
-    <div>
-      Alert!
-    </div>
+    <Alert variant={variant}>
+      {err}
+    </Alert>
   )
 }
 
