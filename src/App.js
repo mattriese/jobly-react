@@ -27,7 +27,7 @@ function App() {
     try {
       const token = await JoblyApi.login(loginData);
       setToken(token);
-      //set local storage here instead of 61
+      localStorage.setItem('token', token);
       setIsLoaded(false);
     } catch (err) {
       console.log('handlelogin err = ', err);
@@ -47,7 +47,7 @@ function App() {
       setToken(token);
       setIsLoaded(false);
     } catch (err) {
-      console.log('handlelogin err = ', err);
+      console.log('handleSignup err = ', err);
       return err;
     }
   }
@@ -55,16 +55,18 @@ function App() {
   useEffect(
     function getCurrUser() {
       async function getUserFromApi() {
-        //TODO: try catch here, error handle
-        if (token) {
-          const { username } = jwt_decode(token);
-          JoblyApi.token = token;
-          localStorage.setItem('token', token);
-          console.log('localstorage token= ', localStorage.getItem('token'));
-          const user = await JoblyApi.getUser(username);
-          setCurrUser(user);
+        try {
+          if (token) {
+            const { username } = jwt_decode(token);
+            JoblyApi.token = token;
+            console.log('localstorage token= ', localStorage.getItem('token'));
+            const user = await JoblyApi.getUser(username);
+            setCurrUser(user);
+          }
+          setIsLoaded(true);
+        } catch (err) {
+          console.log('getCurrUser err = ', err);
         }
-        setIsLoaded(true);
       }
       getUserFromApi();
     },

@@ -4,6 +4,7 @@ import NavItem from 'react-bootstrap/NavItem';
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
 import CurrUserContext from './currUserContext';
+import "./NavBar.css";
 
 /** NavBar component
  *
@@ -20,10 +21,10 @@ function NavBar({ handleLogout }) {
   }
 
   return (
-    <Navbar>
+    <Navbar bg="dark" variant="dark">
       <NavItem>
         <NavLink className="nav-link" to="/">
-          Jobly
+          <b>Jobly</b>
         </NavLink>
       </NavItem>
       {!currUser && (

@@ -1,4 +1,5 @@
 import Card from 'react-bootstrap/Card';
+import "./JobCard.css";
 
 /** JobCard component
  *
@@ -7,13 +8,19 @@ import Card from 'react-bootstrap/Card';
  * - isAtCompanyPage
  */
 function JobCard({ job, isAtCompanyPage }) {
+  const { title, companyName, salary, equity } = job;
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0
+  })
   return (
-    <Card>
+    <Card className="JobCard-Card">
       <Card.Body>
-        <Card.Title>{job.title}</Card.Title>
-        {!isAtCompanyPage && <Card.Text>{job.companyName}</Card.Text>}
-        <Card.Text>Salary: {job.salary}</Card.Text>
-        <Card.Text>Equity: {job.equity}</Card.Text>
+        <Card.Title>{title}</Card.Title>
+        {!isAtCompanyPage && <Card.Text>{companyName}</Card.Text>}
+        <Card.Text>Salary: {formatter.format(salary)}</Card.Text>
+        <Card.Text>Equity: {equity}%</Card.Text>
       </Card.Body>
     </Card>
   );

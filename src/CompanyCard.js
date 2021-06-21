@@ -11,16 +11,21 @@ import './CompanyCard.css';
  */
 
 function CompanyCard({ company }) {
+  const { name, handle, description, logoUrl } = company;
   return (
-    <NavLink className="CompanyCard" to={`/companies/${company.handle}`}>
-      <Card className="CompanyCard-card">
-        <Card.Img src={company.imageUrl} />
-        <Card.Body className="text-left">
-          <Card.Title className="justify-content-between text-left">{company.name}</Card.Title>
-          <Card.Text className="text-left">{company.description}</Card.Text>
-        </Card.Body>
-      </Card>
-    </NavLink>
+    <div className="CompanyCard">
+      <NavLink to={`/companies/${handle}`}>
+        <Card className="CompanyCard-card">
+          {logoUrl && (
+            <Card.Img variant="top" src={logoUrl} alt={`${logoUrl}`} />
+          )}
+          <Card.Body>
+            <Card.Title>{name}</Card.Title>
+            <Card.Text>{description}</Card.Text>
+          </Card.Body>
+        </Card>
+      </NavLink>
+    </div>
   );
 }
 

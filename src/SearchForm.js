@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import "./SearchForm.css";
 
 /**
  * SearchForm component
@@ -27,20 +28,21 @@ function SearchForm({ initialSearchTerm, handleSearch }) {
   }
 
   return (
-    <Form inline onSubmit={handleSubmit}>
-      <Form.Group>
-        <Form.Label htmlFor="searchBox"></Form.Label>
-        <Form.Control
-          className="mb-2 mr-sm-2"
-          value={searchTerm}
-          id="searchBox"
-          type="text"
-          placeholder="Search"
-          onChange={handleChange}
-        />
-      </Form.Group>
-      <Button >search</Button>
-    </Form>
+    <div class="SearchForm">
+      <Form inline onSubmit={handleSubmit}>
+        <Form.Group class="FormInput">
+          <Form.Label htmlFor="searchBox"></Form.Label>
+          <Form.Control
+            value={searchTerm}
+            id="searchBox"
+            type="text"
+            placeholder="Search"
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Button>search</Button>
+      </Form>
+    </div>
   );
 }
 
