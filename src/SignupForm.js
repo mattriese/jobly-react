@@ -114,7 +114,7 @@ function SignupForm({ handleSignup }) {
             required
           />
         </Form.Group>
-        <Button className="SignupForm-Button" type="submit">
+        <Button variant="dark" className="SignupForm-Button" type="submit">
           Signup
         </Button>
       </Form>

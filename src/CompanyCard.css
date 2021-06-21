@@ -16,3 +16,13 @@
     font-family: 'Rubik', sans-serif;
     text-decoration: 'none';
   }
+
+  .CompanyCard:hover {
+      outline-color: black;
+  }
+
+  .title {
+      text-decoration: none;
+      color: black;
+      font-size: 1.5em;
+  }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import "./SearchForm.css";
+import './SearchForm.css';
 
 /**
  * SearchForm component
@@ -40,7 +40,9 @@ function SearchForm({ initialSearchTerm, handleSearch }) {
             onChange={handleChange}
           />
         </Form.Group>
-        <Button className="SearchForm-Button">search</Button>
+        <Button variant="dark" className="SearchForm-Button">
+          search
+        </Button>
       </Form>
     </div>
   );

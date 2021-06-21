@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import { useContext } from 'react';
 import CurrUserContext from './currUserContext';
-import "./Homepage.css";
+import './Homepage.css';
 
 /** Homepage component
  *
@@ -14,12 +14,16 @@ function Homepage() {
   return (
     <div className="Homepage-container">
       <h1>Jobly</h1>
-      <p>All the jobs in one, convenient place.</p>
+      <h5>All the jobs in one, convenient place.</h5>
       {currUser && <h2>Welcome, {currUser.user.firstName}</h2>}
       {!currUser && (
         <div>
-          <Button className="Homepage-button" href="/login">Log in</Button>
-          <Button className="Homepage-button" href="/signup">Sign up</Button>
+          <Button className="Homepage-button" variant="dark" href="/login">
+            Log in
+          </Button>
+          <Button className="Homepage-button" variant="dark" href="/signup">
+            Sign up
+          </Button>
         </div>
       )}
     </div>

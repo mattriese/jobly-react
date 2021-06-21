@@ -18,7 +18,7 @@ function JobCard({ job, isAtCompanyPage }) {
     <Card className="JobCard-Card">
       <Card.Body>
         <Card.Title className="Card-title">{title}</Card.Title>
-        {!isAtCompanyPage && <Card.Text>{companyName}</Card.Text>}
+        {!isAtCompanyPage && <Card.Text>Company: {companyName}</Card.Text>}
         <Card.Text>Salary: {formatter.format(salary)}</Card.Text>
         <Card.Text>Equity: {equity}%</Card.Text>
       </Card.Body>

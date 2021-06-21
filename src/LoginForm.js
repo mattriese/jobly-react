@@ -71,7 +71,7 @@ function LoginForm({ handleLogin }) {
             required
           />
         </Form.Group>
-        <Button className="LoginForm-Button" type="submit">
+        <Button variant="dark" className="LoginForm-Button" type="submit">
           Login
         </Button>
       </Form>
