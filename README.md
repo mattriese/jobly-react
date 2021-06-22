@@ -12,4 +12,4 @@ This project is designed to show proficiency with React, including useState, use
 
 ###
 
-This app was built over 3.5 days by Matt and Andre, and since then, Matt has made some improvements including adding validation and error handling to the login and search forms, and added most of the css you'll see. This is a work in progress. Still to be improved are: adding profile form for users to update their profile, adding a button on job listings to "apply" for the job, and css/design improvements.
+This app was built over 3.5 days by Matt and Andre, and since then, Matt has made some improvements including adding validation and error handling to the login and search forms, and added most of the css you'll see. This is a work in progress. Still to be improved are: adding tests, fixing the job list and company list so that the search results reset after clicking the link for that page in the navbar or by using the back button, adding profile form for users to update their profile, adding a button on job listings to "apply" for the job, and css/design improvements.
