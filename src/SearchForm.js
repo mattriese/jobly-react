@@ -16,10 +16,12 @@ import './SearchForm.css';
 function SearchForm({ initialSearchTerm, handleSearch }) {
   const [searchTerm, setSearchTerm] = useState(initialSearchTerm);
 
+  /** controls form input element */
   function handleChange(evt) {
     setSearchTerm(evt.target.value);
   }
 
+  /** calls handleSearc in parent component */
   function handleSubmit(evt) {
     console.log('handleSubmit ran');
     console.log('searchTerm in handlesubmit= ', searchTerm);

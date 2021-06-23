@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 import { NavLink } from 'react-router-dom';
 import './CompanyCard.css';
 
-/** CompanyCard component
+/** CompanyCard component: shows details on a single company
  *
  * Props:	company (object)
  *

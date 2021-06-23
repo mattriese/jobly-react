@@ -1,6 +1,7 @@
 import JobCard from './JobCard';
 
-/** JobCardList component
+/** JobCardList component: displays JobCards,
+ * with less info if on a company's page
  *
  * Props:
  * - jobs = [{id, title, salary, equity, companyName}, ...]

@@ -99,14 +99,14 @@ class JoblyApi {
     return res;
   }
 
-  /** updateUser: patch request to update user info
+  /** TODO: updateUser: patch request to update user info
    *
    * accepts user data object
    * returns
    */
 }
 
-// TESTUSER TOKEN: for now, put token ("testuser" / "password" on class)
+// TESTUSER TOKEN:
 // JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
 //   "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
 //   "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";

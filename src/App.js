@@ -23,6 +23,9 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem('token') || '');
   const [isLoaded, setIsLoaded] = useState(false);
 
+  /** handleLogin takes loginData from LoginForm component
+   * fetches token from api for valid user or throws error
+   * Called in LoginForm component */
   async function handleLogin(loginData) {
     try {
       const token = await JoblyApi.login(loginData);
@@ -36,12 +39,18 @@ function App() {
     }
   }
 
+  /** handleLogout removes currUser from state
+   * and token from state and localStorage  */
   function handleLogout() {
     setToken('');
     setCurrUser(null);
     localStorage.removeItem('token');
   }
 
+  /** handleSignup tries to fetch token from api by passing signupDat to api
+   * throws error if signup unsuccessful.
+   * Called in SignupForm component
+   */
   async function handleSignup(signupData) {
     try {
       let token = await JoblyApi.signup(signupData);
@@ -53,6 +62,9 @@ function App() {
     }
   }
 
+  /** When token state is set by handleLogin or handleSignup, this Effect gets
+   * the username from the token and sets the currUser state to that username,
+   * to be provided to the rest of the app with useContext */
   useEffect(
     function getCurrUser() {
       async function getUserFromApi() {

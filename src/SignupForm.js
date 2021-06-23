@@ -25,6 +25,7 @@ function SignupForm({ handleSignup }) {
 
   const history = useHistory();
 
+  /** controls form input elements */
   function handleChange(evt) {
     const { name, value } = evt.target;
     setSignupData((signupData) => ({
@@ -33,6 +34,8 @@ function SignupForm({ handleSignup }) {
     }));
   }
 
+  /** calls handleSignup from App component and if successful,
+   * re-routes to homepage. If not, shows error message in alert */
   async function handleSubmit(evt) {
     console.log('handleSubmit ran');
     console.log('signupData in handlesubmit= ', signupData);

@@ -1,11 +1,13 @@
 import Card from 'react-bootstrap/Card';
 import './JobCard.css';
 
-/** JobCard component
+/** JobCard component: shows details on a single job
  *
  * Props:
  * - job = {id, title, salary, equity, companyName}
  * - isAtCompanyPage
+ *
+ * JobCardList -> JobCard
  */
 function JobCard({ job, isAtCompanyPage }) {
   const { title, companyName, salary, equity } = job;

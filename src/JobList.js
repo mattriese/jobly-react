@@ -21,11 +21,15 @@ function JobList() {
   const [isLoading, setIsLoading] = useState(true);
   console.log('JOBS--->', jobs);
 
+  /** handleSearch takes the searchTerm passed by SearchForm and sets SearchTerm state
+  * to trigger re-render from useEffect  */
   function handleSearch(searchTerm) {
     console.log('handleSearch ran');
     setSearchTerm(searchTerm);
   }
 
+  /** gets array of all jobs from api on first render, and array of jobs
+   * that match searchTerm after form submission */
   useEffect(
     function getJobs() {
       async function getAll() {

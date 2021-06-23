@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
 import { JoblyApi } from './api';
 import './CompanyDetail.css';
 
-/** CompanyDetail component
+/** CompanyDetail component: page for showing company name and details, and rendering
+ * all jobcards for that company's jobs
  *
  * State:
  * - company

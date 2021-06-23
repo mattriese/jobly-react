@@ -18,6 +18,7 @@ function LoginForm({ handleLogin }) {
   const history = useHistory();
   const [alert, setAlert] = useState();
 
+  /** Controls the form input elements */
   function handleChange(evt) {
     const { name, value } = evt.target;
     setLoginData((loginData) => ({
@@ -27,6 +28,8 @@ function LoginForm({ handleLogin }) {
     console.log('loginData handleChange-->', loginData);
   }
 
+  /** handleSubmit calls handleLogin from App and if successful, re-routes to
+   * the companies page. If unsuccessful, shows error message in alert. */
   async function handleSubmit(evt) {
     console.log('handleSubmit ran');
     console.log('loginData in handlesubmit= ', loginData);

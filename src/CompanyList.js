@@ -3,7 +3,8 @@ import { JoblyApi } from './api';
 import CompanyCard from './CompanyCard';
 import SearchForm from './SearchForm';
 
-/** CompanyList component
+/** CompanyList component: renders a SearchForm and all CompanyCards or those
+ * that match searchTerm on SearchForm submission
  *
  * State:
  * - companies (array of objects)
@@ -20,11 +21,15 @@ function CompanyList() {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  /** handleSearch takes the searchTerm passed by SearchForm and sets SearchTerm state
+   * to trigger rerender from useEffect  */
   function handleSearch(searchTerm) {
     console.log('handleSearch ran');
     setSearchTerm(searchTerm);
   }
 
+  /** gets array of all companies from api on first render, and array of companies
+   * that match searchTerm after form submission */
   useEffect(
     function getCompanies() {
       async function getAll() {
