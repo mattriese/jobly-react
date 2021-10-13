@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import { useContext } from 'react';
 import CurrUserContext from './currUserContext';
+import { Link } from "react-router-dom";
 import './Homepage.css';
 
 /** Homepage component
@@ -20,12 +21,12 @@ function Homepage() {
         {currUser && <h2>Welcome, {currUser.user.firstName}</h2>}
         {!currUser && (
           <div>
-            <Button className="Homepage-button" variant="dark" href="/login">
+            <Link className="Homepage-button btn btn-dark" to="/login">
               Log in
-            </Button>
-            <Button className="Homepage-button" variant="dark" href="/signup">
+            </Link>
+            <Link className="Homepage-button btn btn-dark" to="/signup">
               Sign up
-            </Button>
+            </Link>
           </div>
         )}
       </div>
