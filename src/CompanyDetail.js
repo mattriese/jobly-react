@@ -51,7 +51,7 @@ function CompanyDetail() {
   }
 
   return (
-    <div>
+    <div className="CompanyDetail">
       <div className="CompanyDetail-info">
         <h2>{company.name}</h2>
         <p>{company.description}</p>
