@@ -43,7 +43,7 @@ function LoginForm({ handleLogin }) {
   }
 
   return (
-    <div>
+    <div className="LoginForm">
       {alert && <Alert variant="warning">{alert.message}</Alert>}
       <Form className="LoginForm-Form" onSubmit={handleSubmit}>
         <Form.Group>

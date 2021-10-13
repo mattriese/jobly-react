@@ -1,8 +1,16 @@
+.SignupForm {
+  height: 100vh;
+}
+
 .SignupForm-Form {
-  width: 40%;
+  background-color: rgba(135, 219, 255, 0.7);
+  position: relative;
+  top: 10%;
+  padding: 2em;
+  width: 50%;
   text-align: center;
   margin: auto;
 }
 .SignupForm-Button {
-  margin-top: 1em;
+  margin-top: 1.5em;
 }

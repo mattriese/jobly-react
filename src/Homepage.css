@@ -1,6 +1,5 @@
 .Homepage-container {
-  padding: 5em;
-  margin-top: 5em;
+  height: 100vh;
 }
 
 .Homepage-button {
@@ -10,4 +9,17 @@
 h1 {
   font-family: 'Rubik', sans-serif;
   font-size: 3.5em;
+}
+
+h4 {
+  margin-bottom: 1em;
+}
+
+.Homepage-welcome {
+  background-color: rgba(135, 219, 255, 0.7);
+  position: relative;
+  top: 20%;
+  padding: 2em;
+  width: 50%;
+  margin: auto;
 }
