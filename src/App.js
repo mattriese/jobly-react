@@ -7,6 +7,7 @@ import Routes from './Routes';
 import { JoblyApi } from './api';
 import jwt_decode from 'jwt-decode';
 import CurrUserContext from './currUserContext';
+import Loading from './Loading';
 
 /** App component
  *
@@ -86,7 +87,7 @@ function App() {
   );
 
   if (!isLoaded) {
-    return <div>loading...</div>;
+    return <Loading></Loading>;
   }
 
   return (

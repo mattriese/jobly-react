@@ -6,13 +6,15 @@
   margin: 0.5em;
 }
 
-h1 {
+.Homepage-title {
   font-family: 'Rubik', sans-serif;
-  font-size: 3.5em;
+  font-size: 2.5em;
+  margin: auto;
+  font-weight: bold;
 }
 
 h4 {
-  margin-bottom: 1em;
+  margin: 1em auto;
 }
 
 .Homepage-welcome {

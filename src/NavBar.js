@@ -22,14 +22,16 @@ function NavBar({ handleLogout }) {
   }
 
   return (
-    <Navbar className="NavBar" sticky="top" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="md" className="NavBar" bg="dark" variant="dark">
       <NavItem>
         <NavLink className="nav-link" to="/">
           <b>Jobly</b>
         </NavLink>
       </NavItem>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav ">
       {!currUser && (
-        <Nav>
+        <Nav className="Nav justify-content-end">
           <NavItem>
             <NavLink className="nav-link" to="/login">
               Login
@@ -43,7 +45,7 @@ function NavBar({ handleLogout }) {
         </Nav>
       )}
       {currUser && (
-        <Nav className="Nav">
+        <Nav className="Nav justify-content-end">
           <NavItem>
             <NavLink className="nav-link" to="/companies">
               Companies
@@ -61,6 +63,7 @@ function NavBar({ handleLogout }) {
           </NavItem>
         </Nav>
       )}
+      </Navbar.Collapse>
     </Navbar>
   );
 }

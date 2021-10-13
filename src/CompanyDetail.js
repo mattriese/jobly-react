@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { JoblyApi } from './api';
 import './CompanyDetail.css';
+import Loading from './Loading';
 
 /** CompanyDetail component: page for showing company name and details, and rendering
  * all jobcards for that company's jobs
@@ -47,7 +48,7 @@ function CompanyDetail() {
   }
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loading></Loading>;
   }
 
   return (

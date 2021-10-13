@@ -1,7 +1,7 @@
 .Nav {
-  position: absolute;
-  right: 5%;
+  width: 97%;
 }
+
 .nav-link {
   font-family: 'Rubik', sans-serif;
 }
