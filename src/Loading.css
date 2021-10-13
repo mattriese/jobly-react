@@ -1,0 +1,10 @@
+.Loading {
+    background-color: rgb(135, 219, 255);
+    height: 100vh;
+}
+
+.Loading-spinner {
+    position: relative;
+    top: 30%;
+    margin: auto;
+}

@@ -3,6 +3,7 @@ import { JoblyApi } from './api';
 import CompanyCard from './CompanyCard';
 import SearchForm from './SearchForm';
 import './CompanyList.css';
+import Loading from './Loading';
 
 /** CompanyList component: renders a SearchForm and all CompanyCards or those
  * that match searchTerm on SearchForm submission
@@ -55,12 +56,13 @@ function CompanyList() {
   }
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loading></Loading>;
   }
 
   return (
     <div className="CompanyList">
       <SearchForm initialSearchTerm={searchTerm} handleSearch={handleSearch} />
+      <h1>Companies</h1>
       {companies.map((c) => (
         <CompanyCard key={c.handle} company={c} />
       ))}

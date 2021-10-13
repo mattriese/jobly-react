@@ -3,6 +3,7 @@ import JobCardList from './JobCardList';
 import SearchForm from './SearchForm';
 import { JoblyApi } from './api';
 import './JobList.css';
+import Loading from './Loading';
 
 
 /** JobList component
@@ -55,12 +56,13 @@ function JobList() {
   }
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loading></Loading>;
   }
 
   return (
     <div className="JobList">
       <SearchForm initialSearchTerm={searchTerm} handleSearch={handleSearch} />
+      <h1>Jobs</h1>
       <JobCardList jobs={jobs} />
     </div>
   );
