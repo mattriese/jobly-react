@@ -62,11 +62,7 @@ function NavBar({ handleLogout }) {
                 Jobs
               </NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink className="nav-link" to="/profile">
-                Profile
-              </NavLink>
-            </NavItem>
+
             <NavItem className="ml-auto">
               <NavLink onClick={logout} className="nav-link ml-auto" to="/">
                 Logout {currUser.user.username}
@@ -80,3 +76,9 @@ function NavBar({ handleLogout }) {
 }
 
 export default NavBar;
+
+{/* <NavItem>
+<NavLink className="nav-link" to="/profile">
+  Profile
+</NavLink>
+</NavItem> */}
