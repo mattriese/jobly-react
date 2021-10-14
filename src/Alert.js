@@ -5,7 +5,7 @@ import Alert from 'react-bootstrap/Alert'
  * SignupForm -> Alert
  * ProfileForm -> Alert
  */
-function Alert({ variant, err }) {
+function AlertComponent({ variant, err }) {
   return (
     <Alert variant={variant}>
       {err}
@@ -13,4 +13,4 @@ function Alert({ variant, err }) {
   )
 }
 
-export default Alert;
+export default AlertComponent;

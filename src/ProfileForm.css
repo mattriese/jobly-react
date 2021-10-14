@@ -1,0 +1,34 @@
+.ProfileForm {
+    height: 100vh;
+}
+
+.CompanyList {
+    background-color: rgb(165, 214, 235);
+}
+
+h2 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 2em;
+    margin: .5em;
+}
+
+.ProfileForm-Form {
+    background-color: rgb(165, 214, 235);
+    position: relative;
+    top: 20%;
+    padding: 2em;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+  }
+
+.ProfileForm-Button {
+    margin-top: 1.5em;
+  }
+
+.ProfileForm-Label {
+    text-align: left;
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: .5em;
+}

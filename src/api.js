@@ -15,12 +15,12 @@ class JoblyApi {
   static token;
 
   static async request(endpoint, data = {}, method = 'get') {
-    console.debug('API Call:', endpoint, data, method);
-
+    //console.debug goes up here, sans headers and params
+    console.log("token in api=========++++++++++", JoblyApi.token);
     const url = `${BASE_URL}/${endpoint}`;
     const headers = { Authorization: `Bearer ${JoblyApi.token}` };
     const params = method === 'get' ? data : {};
-
+    console.debug('API Call1:', endpoint, data, method, headers, params);
     try {
       return (await axios({ url, method, data, params, headers })).data;
     } catch (err) {
@@ -104,6 +104,11 @@ class JoblyApi {
    * accepts user data object
    * returns
    */
+  static async update(username, updateData) {
+    console.log("update username, data== ", username, updateData);
+    let res = await this.request(`users/${username}`, updateData, 'PATCH');
+    return res;
+  }
 }
 
 // TESTUSER TOKEN:

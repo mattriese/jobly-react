@@ -22,7 +22,13 @@ function NavBar({ handleLogout }) {
   }
 
   return (
-    <Navbar collapseOnSelect expand="md" className="NavBar" bg="dark" variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="md"
+      className="NavBar"
+      bg="dark"
+      variant="dark"
+    >
       <NavItem>
         <NavLink className="nav-link" to="/">
           <b>Jobly</b>
@@ -30,39 +36,44 @@ function NavBar({ handleLogout }) {
       </NavItem>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav ">
-      {!currUser && (
-        <Nav className="Nav justify-content-end">
-          <NavItem>
-            <NavLink className="nav-link" to="/login">
-              Login
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink className="nav-link" to="/signup">
-              Signup
-            </NavLink>
-          </NavItem>
-        </Nav>
-      )}
-      {currUser && (
-        <Nav className="Nav justify-content-end">
-          <NavItem>
-            <NavLink className="nav-link" to="/companies">
-              Companies
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink className="nav-link" to="/jobs">
-              Jobs
-            </NavLink>
-          </NavItem>
-          <NavItem className="ml-auto">
-            <NavLink onClick={logout} className="nav-link ml-auto" to="/">
-              Logout {currUser.user.username}
-            </NavLink>
-          </NavItem>
-        </Nav>
-      )}
+        {!currUser && (
+          <Nav className="Nav justify-content-end">
+            <NavItem>
+              <NavLink className="nav-link" to="/login">
+                Login
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className="nav-link" to="/signup">
+                Signup
+              </NavLink>
+            </NavItem>
+          </Nav>
+        )}
+        {currUser && (
+          <Nav className="Nav justify-content-end">
+            <NavItem>
+              <NavLink className="nav-link" to="/companies">
+                Companies
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className="nav-link" to="/jobs">
+                Jobs
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink className="nav-link" to="/profile">
+                Profile
+              </NavLink>
+            </NavItem>
+            <NavItem className="ml-auto">
+              <NavLink onClick={logout} className="nav-link ml-auto" to="/">
+                Logout {currUser.user.username}
+              </NavLink>
+            </NavItem>
+          </Nav>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );

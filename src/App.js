@@ -63,6 +63,7 @@ function App() {
     }
   }
 
+
   /** When token state is set by handleLogin or handleSignup, this Effect gets
    * the username from the token and sets the currUser state to that username,
    * to be provided to the rest of the app with useContext */

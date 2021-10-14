@@ -25,7 +25,6 @@ function LoginForm({ handleLogin }) {
       ...loginData,
       [name]: value,
     }));
-    console.log('loginData handleChange-->', loginData);
   }
 
   /** handleSubmit calls handleLogin from App and if successful, re-routes to
