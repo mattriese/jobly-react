@@ -20,6 +20,11 @@ function NavBar({ handleLogout }) {
     evt.preventDefault();
     handleLogout();
   }
+/* <NavItem>
+<NavLink className="nav-link" to="/profile">
+  Profile
+</NavLink>
+</NavItem> */
 
   return (
     <Navbar
@@ -76,9 +81,3 @@ function NavBar({ handleLogout }) {
 }
 
 export default NavBar;
-
-{/* <NavItem>
-<NavLink className="nav-link" to="/profile">
-  Profile
-</NavLink>
-</NavItem> */}
