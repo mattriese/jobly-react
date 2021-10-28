@@ -23,6 +23,7 @@ function JobCard({ job, isAtCompanyPage }) {
         {!isAtCompanyPage && <Card.Text>Company: {companyName}</Card.Text>}
         <Card.Text>Salary: {formatter.format(salary)}</Card.Text>
         <Card.Text>Equity: {equity}%</Card.Text>
+        <p>apply</p>
       </Card.Body>
     </Card>
   );
