@@ -16,9 +16,9 @@ import './ProfileForm.css';
  */
 function ProfileForm() {
   const { currUser, setCurrUser } = useContext(CurrUserContext);
-  const [alert, setAlert] = useState({ variant: "", msg: [] });
-  const [success, setSuccess] = useState();
-  const history = useHistory();
+  const [alert, setAlert] = useState({ variant: '', msg: [] });
+  // const [success, setSuccess] = useState();
+  // const history = useHistory();
   const [formData, setFormData] = useState({
     firstName: currUser.user.firstName,
     lastName: currUser.user.lastName,
@@ -30,22 +30,25 @@ function ProfileForm() {
     console.log('handleSubmit PRofileForm ran');
     console.log('formData in handlesubmit= ', formData);
     evt.preventDefault();
-    try{
+    try {
       let updatedUser = await JoblyApi.update(currUser.user.username, formData);
       setCurrUser(updatedUser);
       // setSuccess("Profile successfully updated");
-      setAlert({variant: "success", msg: ["Profile updated successfully"]})
-    } catch (err){
-      console.error("profile form console.error:::", err);
+      setAlert({ variant: 'success', msg: ['Profile updated successfully'] });
+    } catch (err) {
+      console.error('profile form console.error:::', err);
       const errorMessages = Array.from(err);
-      setAlert({variant: "warning", msg: errorMessages});
-      console.log("alert is array?------------------------------", Array.isArray(alert));
+      setAlert({ variant: 'warning', msg: errorMessages });
+      console.log(
+        'alert is array?------------------------------',
+        Array.isArray(alert)
+      );
     }
   }
 
   function handleChange(evt) {
     const { name, value } = evt.target;
-    setFormData(formData => ({
+    setFormData((formData) => ({
       ...formData,
       [name]: value,
     }));
@@ -60,7 +63,9 @@ function ProfileForm() {
         <h2>{currUser.user.username}</h2>
         <p>Update profile:</p>
         <Form.Group>
-          <Form.Label className="ProfileForm-Label" htmlFor="update-firstName">First name:</Form.Label>
+          <Form.Label className="ProfileForm-Label" htmlFor="update-firstName">
+            First name:
+          </Form.Label>
           <Form.Control
             className="mb-2 mr-sm-2"
             name="firstName"
@@ -72,7 +77,9 @@ function ProfileForm() {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label className="ProfileForm-Label" htmlFor="update-lastName">Last name:</Form.Label>
+          <Form.Label className="ProfileForm-Label" htmlFor="update-lastName">
+            Last name:
+          </Form.Label>
           <Form.Control
             className="mb-2 mr-sm-2"
             name="lastName"
@@ -84,7 +91,9 @@ function ProfileForm() {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label className="ProfileForm-Label" htmlFor="update-email">Email:</Form.Label>
+          <Form.Label className="ProfileForm-Label" htmlFor="update-email">
+            Email:
+          </Form.Label>
           <Form.Control
             className="mb-2 mr-sm-2"
             name="email"
@@ -96,7 +105,9 @@ function ProfileForm() {
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label className="ProfileForm-Label" htmlFor="update-password">Password:</Form.Label>
+          <Form.Label className="ProfileForm-Label" htmlFor="update-password">
+            Password:
+          </Form.Label>
           <Form.Control
             className="mb-2 mr-sm-2"
             name="password"
