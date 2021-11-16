@@ -22,7 +22,7 @@ import CurrUserContext from './currUserContext';
  *               -> ProfileForm
  */
 function Routes({ handleLogin, handleSignup }) {
-  const currUser = useContext(CurrUserContext);
+  const { currUser } = useContext(CurrUserContext);
 
   if (currUser) {
     return (

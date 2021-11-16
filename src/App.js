@@ -48,7 +48,7 @@ function App() {
     localStorage.removeItem('token');
   }
 
-  /** handleSignup tries to fetch token from api by passing signupDat to api
+  /** handleSignup tries to fetch token from api by passing signupData to api
    * throws error if signup unsuccessful.
    * Called in SignupForm component
    */
@@ -75,6 +75,7 @@ function App() {
             const { username } = jwt_decode(token);
             JoblyApi.token = token;
             const user = await JoblyApi.getUser(username);
+            console.log("user from api response in app==========", user);
             setCurrUser(user);
           }
           setIsLoaded(true);
@@ -94,7 +95,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <CurrUserContext.Provider value={currUser}>
+        <CurrUserContext.Provider value={{ currUser, setCurrUser }}>
           <NavBar handleLogout={handleLogout} />
           <Routes handleLogin={handleLogin} handleSignup={handleSignup} />
         </CurrUserContext.Provider>

@@ -14,13 +14,13 @@ import './NavBar.css';
  * App -> NavBar
  */
 function NavBar({ handleLogout }) {
-  const currUser = useContext(CurrUserContext);
+  const { currUser } = useContext(CurrUserContext);
 
   function logout(evt) {
     evt.preventDefault();
     handleLogout();
   }
-/* <NavItem>
+  /* <NavItem>
 <NavLink className="nav-link" to="/profile">
   Profile
 </NavLink>
@@ -67,7 +67,11 @@ function NavBar({ handleLogout }) {
                 Jobs
               </NavLink>
             </NavItem>
-
+            <NavItem>
+              <NavLink className="nav-link" to="/profile">
+                Profile
+              </NavLink>
+            </NavItem>
             <NavItem className="ml-auto">
               <NavLink onClick={logout} className="nav-link ml-auto" to="/">
                 Logout {currUser.user.username}

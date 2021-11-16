@@ -11,7 +11,7 @@ import './Homepage.css';
 /**this works in Homepage-container style={{backgroundImage: "url(/ben-o-bro-wpU4veNGnHg-unsplash.jpg)",
     backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}} */
 function Homepage() {
-  const currUser = useContext(CurrUserContext);
+  const { currUser } = useContext(CurrUserContext);
   console.log('currUser in homepage= ', currUser);
   return (
     <div className="Homepage-container" >
